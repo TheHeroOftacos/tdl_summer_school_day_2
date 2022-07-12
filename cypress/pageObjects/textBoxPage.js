@@ -32,6 +32,12 @@ class TextBoxPage extends BasePage {
   static get validatePAdress(){
     return cy.get('[id="output"]');
   }
+  static get checkurl(){
+    return "/checkbox";
+  }
+  static get expand(){
+    return cy.get('[class="rct-option rct-option-expand-all"]')
+  }
   
   
 }

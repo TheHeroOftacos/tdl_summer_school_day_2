@@ -1,4 +1,6 @@
 import TextBoxPage from "../../pageObjects/textBoxPage";
+import CheckBoxPage from "../../pageObjects/checkBoxPage";
+
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -26,15 +28,34 @@ context("Elements Page", () => {
 
   context("Check box scenarios", () => {
     // Create CheckBoxPage page object
+    beforeEach(() => {
+      CheckBoxPage.visit();
+    });
+    //cy.get(':nth-child(1) > .element-list > .menu-list > #item-1')
     // Create checkbox scenario 1:
-    // Click the "+"/expand button
-    // Click Notes, React, Angular, General, Excel File.doc
-    // Validate the clicked checkboxes
+    it.only("scenario 1", () => {
+      // Click the "+"/expand button
+      CheckBoxPage.plusButton.click();
+      // Click Notes, React, Angular, General, Excel File.doc
+      CheckBoxPage.checkNotes.click();
+      CheckBoxPage.checkReact.click();
+      CheckBoxPage.checkAngular.click();
+      CheckBoxPage.checkGeneral.click();
+      CheckBoxPage.checkExcel.click();
+      // Validate the clicked checkboxes
+      CheckBoxPage.resultNotes.should("have.text","notes");
+      CheckBoxPage.resultReact.should("have.text","react");
+      CheckBoxPage.resultAngular.should("have.text","angular");
+      CheckBoxPage.resultGeneral.should("have.text","general");
+      CheckBoxPage.resultExcel.should("have.text","excelFile");
+    })
+  
 
     // Create checkbox scenario 2:
     // Click expand button
     // Click Office
     // Validate the checked checkboxes
+    
   });
 
   context("Radio button scenarios", () => {
