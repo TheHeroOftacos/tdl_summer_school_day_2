@@ -1,6 +1,7 @@
 import TextBoxPage from "../../pageObjects/textBoxPage";
 import CheckBoxPage from "../../pageObjects/checkBoxPage";
 import RadioButtons from "../../pageObjects/radioButton";
+import webtables from "../../pageObjects/WebTables.js";
 
 
 context("Elements Page", () => {
@@ -68,7 +69,7 @@ context("Elements Page", () => {
       RadioButtons.visit();
     });
     // Scenario 1:
-    it.only('scenario 1', ()=>{
+    it('scenario 1', ()=>{
       RadioButtons.yesbutton.click();
     // Click yesButton
       RadioButtons.resultyes.should("have.text","Yes")
@@ -84,16 +85,32 @@ context("Elements Page", () => {
 
   context("Web tables scenarios", () => {
     // Create WebTables page object
+    beforeEach(() => {
+      webtables.visit();
+    });
     // Create scenario 1:
+    it.only('scenario 1', ()=>{
     // Click add record button
+    webtables.addbutton.click()
     // fill in the necessary information
+    webtables.firstname.type("markuss");
+    webtables.lastname.type("hari");
+    webtables.email.type("markuss@gmail.com");
+    webtables.age.type("20");
+    webtables.salary.type("2");
+    webtables.department.type("air");
     // click submit button
+    webtables.submit.click()
     // search for the user based on previously added information
+    webtables.clicksearch.click()
+    webtables.clicksearch.type("Markuss");
     // validate tha the user is visible
-
+    webtables.valid.should("have.text","markuss")
+    });
     // Create Scenario 2:
     // Delete all table rows
     // Validate that we see text - No rows found
+
   });
 
   context("Buttons scenarios", () => {
