@@ -9,8 +9,18 @@ context("Elements Page", () => {
     // Create texbox scenario
     // fill in textboxes with necessary information
     // validate the paragraphs
+    
     it("Filling in Text Boxes", () => {
       // add the necessary steps
+      TextBoxPage.fullName.type("Markuss]");
+      TextBoxPage.eMail.type("marl@gmail.com");
+      TextBoxPage.cAdress.type("kuldiga 1");
+      TextBoxPage.pAdress.type("kuldigas 2");
+      TextBoxPage.submit.click();
+      TextBoxPage.validateName.should('contain','Markuss');
+      TextBoxPage.validateEMail.should('contain','marl@gmail.com');
+      TextBoxPage.validateCAdress.should('contain','kuldiga 1');
+      TextBoxPage.validatePAdress.should('contain','kuldigas 2');
     });
   });
 
