@@ -78,7 +78,7 @@ context("Elements Page", () => {
       RadioButtons.resultimp.should("have.text","Impressive")
     // click impressiveButton
     // validate the message
-      RadioButtons.nobutton.should('be.visible').should('be.disabled')
+      RadioButtons.nobutton.should('be.visible').should('have.class', 'disabled')
     // noButton - validate that the button exists but is disabled
     });
   });
@@ -122,7 +122,7 @@ context("Elements Page", () => {
     beforeEach(() => {
       Buttonscen.visit();
     });
-    it('scenario 1', ()=>{
+    it.only('scenario 1', ()=>{
     // Create buttons clicking scenario
     // Create Buttons page
     // Check documentation https://docs.cypress.io/api/commands/and for how to perform different types of clicking

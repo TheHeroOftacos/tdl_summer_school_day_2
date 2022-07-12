@@ -17,11 +17,13 @@ class Buttonscen extends BasePage {
         return cy.get('[id="rightClickMessage"]')
     }
     static get regclick(){
-        return cy.get('["class="btn btn-primary""]').last()
+        return cy.get('button[class = "btn btn-primary"]').eq(2);
+
     }
     static get regmsg(){
         return cy.get('[id="dynamicClickMessage"]')
     }
+
 }
 
 export default Buttonscen;
