@@ -69,11 +69,15 @@ context("Elements Page", () => {
     });
     // Scenario 1:
     it.only('scenario 1', ()=>{
-
+      RadioButtons.yesbutton.click();
     // Click yesButton
+      RadioButtons.resultyes.should("have.text","Yes")
     // validate the message
+      RadioButtons.impbutton.click();
+      RadioButtons.resultimp.should("have.text","Impressive")
     // click impressiveButton
     // validate the message
+      RadioButtons.nobutton.should('be.visible').should('be.disabled')
     // noButton - validate that the button exists but is disabled
     });
   });
