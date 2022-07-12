@@ -1,5 +1,6 @@
 import TextBoxPage from "../../pageObjects/textBoxPage";
 import CheckBoxPage from "../../pageObjects/checkBoxPage";
+import RadioButtons from "../../pageObjects/radioButton";
 
 
 context("Elements Page", () => {
@@ -33,7 +34,7 @@ context("Elements Page", () => {
     });
     //cy.get(':nth-child(1) > .element-list > .menu-list > #item-1')
     // Create checkbox scenario 1:
-    it.only("scenario 1", () => {
+    it("scenario 1", () => {
       // Click the "+"/expand button
       CheckBoxPage.plusButton.click();
       // Click Notes, React, Angular, General, Excel File.doc
@@ -50,22 +51,31 @@ context("Elements Page", () => {
       CheckBoxPage.resultExcel.should("have.text","excelFile");
     })
   
-
+    it('scenario 2', () =>{
     // Create checkbox scenario 2:
     // Click expand button
+    CheckBoxPage.plusButton.click();
     // Click Office
+    CheckBoxPage.office.contains('Office').should('be.visible').click();
     // Validate the checked checkboxes
-    
+    CheckBoxPage.resultOffice.should("have.text","You have selected :officepublicprivateclassifiedgeneral");
+  });
   });
 
   context("Radio button scenarios", () => {
     // Create RadioButtons page object
+    beforeEach(() => {
+      RadioButtons.visit();
+    });
     // Scenario 1:
+    it.only('scenario 1', ()=>{
+
     // Click yesButton
     // validate the message
     // click impressiveButton
     // validate the message
     // noButton - validate that the button exists but is disabled
+    });
   });
 
   context("Web tables scenarios", () => {

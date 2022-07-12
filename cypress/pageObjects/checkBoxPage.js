@@ -37,6 +37,12 @@ class CheckBoxPage extends BasePage {
     static get resultExcel(){
         return cy.get('#result > :nth-child(6)');
     }
+    static get office(){
+        return cy.get('[class="check-box-tree-wrapper"]')
+    }
+    static get resultOffice(){
+        return cy.get('[class="display-result mt-4"]');
+    }
 }
 
 export default CheckBoxPage;
