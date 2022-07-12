@@ -2,7 +2,7 @@ import TextBoxPage from "../../pageObjects/textBoxPage";
 import CheckBoxPage from "../../pageObjects/checkBoxPage";
 import RadioButtons from "../../pageObjects/radioButton";
 import webtables from "../../pageObjects/WebTables.js";
-
+import Buttonscen from "../../pageObjects/button.js";
 
 context("Elements Page", () => {
   context("Text box scenarios", () => {
@@ -89,7 +89,7 @@ context("Elements Page", () => {
       webtables.visit();
     });
     // Create scenario 1:
-    it.only('scenario 1', ()=>{
+    it('scenario 1', ()=>{
     // Click add record button
     webtables.addbutton.click()
     // fill in the necessary information
@@ -107,21 +107,37 @@ context("Elements Page", () => {
     // validate tha the user is visible
     webtables.valid.should("have.text","markuss")
     });
+    it('scenario 2', ()=>{
     // Create Scenario 2:
+    webtables.delete.click()
+    webtables.delete2.click()
+    webtables.delete3.click()
     // Delete all table rows
     // Validate that we see text - No rows found
-
+    webtables.nodata.should("have.text","No rows found")
+    });
   });
 
   context("Buttons scenarios", () => {
+    beforeEach(() => {
+      Buttonscen.visit();
+    });
+    it('scenario 1', ()=>{
     // Create buttons clicking scenario
     // Create Buttons page
     // Check documentation https://docs.cypress.io/api/commands/and for how to perform different types of clicking
+    Buttonscen.dbl.dblclick()
     // Click Double click button
+    Buttonscen.dblmsg.should("have.text","You have done a double click")
     // Validate the double click message
+    Buttonscen.rclick.rightclick()
     // Click rightclick button
+    Buttonscen.rclickmsg.should("have.text","You have done a right click")
     // Validate the right click message
+    Buttonscen.regclick.click()
     // Do dynamic click
+    Buttonscen.regmsg.should("have.text","You have done a dynamic click")
     // Validate dynamic click message
+    })
   });
 });

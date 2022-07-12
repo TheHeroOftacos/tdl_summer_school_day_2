@@ -35,6 +35,18 @@ class WebTable extends BasePage {
   static get valid(){
     return cy.get('[class="rt-td"]').first()
   }
+  static get delete(){
+    return cy.get('[id="delete-record-1"]').scrollIntoView()
+  }
+  static get delete2(){
+    return cy.get('[id="delete-record-2"]')
+  }
+  static get delete3(){
+    return cy.get('[id="delete-record-3"]')
+  }
+  static get nodata(){
+    return cy.get('[class="rt-noData"]')
+  }
 }
 
 export default WebTable;
